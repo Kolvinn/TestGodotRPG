@@ -1,0 +1,218 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://Sprites/motw.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/WalkingFinal.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Player.cs" type="Script" id=10]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 216, 52, 72 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 52, 216, 52, 72 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 104, 216, 52, 72 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 52, 72 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 52, 0, 52, 72 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 104, 0, 52, 72 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 72, 52, 72 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 52, 72, 52, 72 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 104, 72, 52, 72 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 144, 52, 72 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 52, 144, 52, 72 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 104, 144, 52, 72 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 52, 72, 52, 72 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 52, 216, 52, 72 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 52, 0, 52, 72 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 52, 144, 52, 72 )
+
+[sub_resource type="SpriteFrames" id=14]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "WalkNorth",
+"speed": 60.0
+}, {
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "WalkSouth",
+"speed": 60.0
+}, {
+"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
+"loop": true,
+"name": "WalkWest",
+"speed": 60.0
+}, {
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"loop": true,
+"name": "WalkEast",
+"speed": 60.0
+}, {
+"frames": [ SubResource( 16 ) ],
+"loop": true,
+"name": "IdleWest",
+"speed": 60.0
+}, {
+"frames": [ SubResource( 17 ) ],
+"loop": true,
+"name": "IdleNorth",
+"speed": 65.0
+}, {
+"frames": [ SubResource( 10 ) ],
+"loop": true,
+"name": "IdleSouth",
+"speed": 60.0
+}, {
+"frames": [ SubResource( 18 ) ],
+"loop": true,
+"name": "IdleEast",
+"speed": 60.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 41.173, 31.1178 )
+
+[sub_resource type="Animation" id=21]
+resource_name = "WalkEast"
+length = 0.8
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 7, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "WalkNorth"
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 9, 10, 11, 10 ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "WalkSouth"
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 1 ]
+}
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 150.467, 114.659 )
+input_pickable = true
+collision/safe_margin = 1.0
+script = ExtResource( 10 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 270.425, 6.28152 )
+texture = ExtResource( 2 )
+hframes = 3
+vframes = 4
+frame = 7
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0.118958, -0.406345 )
+scale = Vector2( 1, 0.98144 )
+frames = SubResource( 14 )
+animation = "IdleNorth"
+speed_scale = 0.1
+offset = Vector2( 0, -30 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.53284, 0.195614 )
+scale = Vector2( 0.36, 0.36 )
+shape = SubResource( 15 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/WalkEast = SubResource( 21 )
+anims/WalkNorth = SubResource( 20 )
+anims/WalkSouth = SubResource( 19 )
+
+[connection signal="input_event" from="." to="." method="_on_Player_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_Player_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_Player_mouse_exited2"]

@@ -1,0 +1,246 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://Sprites/WalkingFinal.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Player.cs" type="Script" id=10]
+
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 43.3588, 34.7236 )
+
+[sub_resource type="Animation" id=19]
+resource_name = "IdleEast"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 7 ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "IdleNorth"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 10 ]
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "IdleSouth"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "IdleWest"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+
+[sub_resource type="Animation" id=22]
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 7, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=23]
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 9, 10, 11, 10 ]
+}
+
+[sub_resource type="Animation" id=24]
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 1 ]
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "WalkWest"
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 4, 5, 4 ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=27]
+animation = "IdleWest"
+
+[sub_resource type="AnimationNodeAnimation" id=28]
+animation = "IdleSouth"
+
+[sub_resource type="AnimationNodeAnimation" id=29]
+animation = "IdleEast"
+
+[sub_resource type="AnimationNodeAnimation" id=30]
+animation = "IdleNorth"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=31]
+blend_point_0/node = SubResource( 27 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 28 )
+blend_point_1/pos = Vector2( 0, 1.1 )
+blend_point_2/node = SubResource( 29 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 30 )
+blend_point_3/pos = Vector2( 0, -1.1 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=34]
+animation = "WalkWest"
+
+[sub_resource type="AnimationNodeAnimation" id=35]
+animation = "WalkSouth"
+
+[sub_resource type="AnimationNodeAnimation" id=36]
+animation = "WalkEast"
+
+[sub_resource type="AnimationNodeAnimation" id=37]
+animation = "WalkNorth"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=38]
+blend_point_0/node = SubResource( 34 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 35 )
+blend_point_1/pos = Vector2( 0, 1.1 )
+blend_point_2/node = SubResource( 36 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 37 )
+blend_point_3/pos = Vector2( 0, -1.1 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=39]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=40]
+
+[sub_resource type="AnimationNodeStateMachine" id=32]
+states/Idle/node = SubResource( 31 )
+states/Idle/position = Vector2( 211, 172 )
+states/Walk/node = SubResource( 38 )
+states/Walk/position = Vector2( 423, 172 )
+transitions = [ "Idle", "Walk", SubResource( 39 ), "Walk", "Idle", SubResource( 40 ) ]
+start_node = "Idle"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=33]
+resource_local_to_scene = false
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 150.467, 114.659 )
+input_pickable = true
+collision/safe_margin = 1.0
+script = ExtResource( 10 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -0.656807, -18.4797 )
+scale = Vector2( 0.933898, 0.958951 )
+texture = ExtResource( 2 )
+hframes = 3
+vframes = 4
+frame = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.53284, 0.195614 )
+scale = Vector2( 0.36, 0.36 )
+shape = SubResource( 18 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/IdleEast = SubResource( 19 )
+anims/IdleNorth = SubResource( 20 )
+anims/IdleSouth = SubResource( 26 )
+anims/IdleWest = SubResource( 21 )
+anims/WalkEast = SubResource( 22 )
+anims/WalkNorth = SubResource( 23 )
+anims/WalkSouth = SubResource( 24 )
+anims/WalkWest = SubResource( 25 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 32 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 33 )
+parameters/Idle/blend_position = Vector2( 0.168659, 0.0960318 )
+parameters/Walk/blend_position = Vector2( 0.515371, -0.0174603 )
+
+[connection signal="input_event" from="." to="." method="_on_Player_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_Player_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_Player_mouse_exited2"]

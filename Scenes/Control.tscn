@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="Theme" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -493.71
+margin_top = -275.46
+margin_right = -493.71
+margin_bottom = -275.46
+theme = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

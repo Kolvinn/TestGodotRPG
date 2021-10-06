@@ -1,0 +1,96 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites/pf-misc14-adj00862-kut-d.jpg" type="Texture" id=1]
+[ext_resource path="res://Scenes/UI/InventorySlot.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/30.png" type="Texture" id=3]
+
+[node name="CharacterSheet" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+margin_left = 136.0
+margin_top = 96.0
+margin_right = 800.0
+margin_bottom = 392.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 80
+custom_constants/margin_top = 25
+custom_constants/margin_left = 78
+custom_constants/margin_bottom = 25
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="NinePatchRect/MarginContainer"]
+margin_left = 78.0
+margin_top = 25.0
+margin_right = 584.0
+margin_bottom = 271.0
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect/MarginContainer/CenterContainer"]
+margin_left = 23.0
+margin_top = 13.0
+margin_right = 483.0
+margin_bottom = 233.0
+custom_constants/vseparation = 20
+custom_constants/hseparation = 20
+columns = 4
+
+[node name="InventorySlot" parent="NinePatchRect/MarginContainer/CenterContainer/GridContainer" instance=ExtResource( 2 )]
+margin_right = 100.0
+margin_bottom = 100.0
+
+[node name="InventorySlot2" parent="NinePatchRect/MarginContainer/CenterContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 120.0
+margin_right = 220.0
+margin_bottom = 100.0
+
+[node name="Icon" parent="NinePatchRect/MarginContainer/CenterContainer/GridContainer/InventorySlot2" index="0"]
+texture = ExtResource( 3 )
+
+[node name="InventorySlot3" parent="NinePatchRect/MarginContainer/CenterContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 240.0
+margin_right = 340.0
+margin_bottom = 100.0
+
+[node name="InventorySlot4" parent="NinePatchRect/MarginContainer/CenterContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 360.0
+margin_right = 460.0
+margin_bottom = 100.0
+
+[node name="InventorySlot5" parent="NinePatchRect/MarginContainer/CenterContainer/GridContainer" instance=ExtResource( 2 )]
+margin_top = 120.0
+margin_right = 100.0
+margin_bottom = 220.0
+
+[node name="InventorySlot6" parent="NinePatchRect/MarginContainer/CenterContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 120.0
+margin_top = 120.0
+margin_right = 220.0
+margin_bottom = 220.0
+
+[node name="InventorySlot7" parent="NinePatchRect/MarginContainer/CenterContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 240.0
+margin_top = 120.0
+margin_right = 340.0
+margin_bottom = 220.0
+
+[node name="InventorySlot8" parent="NinePatchRect/MarginContainer/CenterContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 360.0
+margin_top = 120.0
+margin_right = 460.0
+margin_bottom = 220.0
+
+[editable path="NinePatchRect/MarginContainer/CenterContainer/GridContainer/InventorySlot"]
+[editable path="NinePatchRect/MarginContainer/CenterContainer/GridContainer/InventorySlot2"]
