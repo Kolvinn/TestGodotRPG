@@ -5,9 +5,9 @@
 [ext_resource path="res://Sprites/tree1.png" type="Texture" id=3]
 
 [node name="InventorySlot" type="TextureRect"]
-margin_right = 40.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 100, 100 )
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 2 )
 expand = true
 script = ExtResource( 1 )

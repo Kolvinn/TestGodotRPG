@@ -10,11 +10,13 @@ public class PlayerController : Node2D
 
     // Called when the node enters the scene tree for the first time.
     private Player player;
-    private PlayerCamera2D camera;
+    //private PlayerCamera2D camera;
 
     private TileMap tiles;
 
     private bool debug1 = true, debug2 = true;
+
+
     private enum GameState {
         Default,
         Menu,
@@ -37,23 +39,24 @@ public class PlayerController : Node2D
 
     private string savefile = "user://save.dat";
 
-    private Godot.Control UI;
+    private UIController UI;
 
-    private Godot.Control UIContainer;
+    //private UIController UIContainer;
     
     public override void _Ready()
     
     {   
         drop = new Droppable();
         gameState = GameState.Default;
-        camera = GetChild<PlayerCamera2D>(0);
-        tiles = GetChild<TileMap>(1);
-        sort = GetChild<YSort>(2);
+        //camera = GetChild<PlayerCamera2D>(0);
+        tiles = GetChild<TileMap>(0);
+        sort = GetChild<YSort>(1);
         player = sort.GetChild<Player>(1);
+        Engine.TargetFps= 144;
        // UIContainer = GetChild<Godot.Control>(3);
         //UIContainer.SetPosition(camera.Position);
         //UI.setSiz
-
+        UI  = GetChild<UIController>(2);
         //var scene = GD.Load<PackedScene>("res://Scenes/UI/CharacterSheet.tscn");
         //UI = scene.Instance<Godot.Control>();
         //this.AddChild(UI);
@@ -214,7 +217,7 @@ public class PlayerController : Node2D
         if (this.gameState == GameState.Default){
             GetMovementVector(delta);
 
-            GD.Print(this.velocity + "    "+this.player.animationState);
+            //GD.Print(this.velocity + "    "+this.player.animationState);
             //SetMovementAndAction(this.velocity, this.player);
            //GD.Print(velocity);
             //GD.Print(velocity);
@@ -230,7 +233,7 @@ public class PlayerController : Node2D
 
             //currentActions.length = 0 ? player.PlayAnimation("Idle") : player.PlayAnimation("WalkSouth");
             //currentActions.Clear();
-            camera.Position = player.Position;
+            //.Position = player.Position;
             //UIContainer.SetPosition(camera.Position);
         }
     }
@@ -238,13 +241,16 @@ public class PlayerController : Node2D
     private void GetKeyInput(){
         //change game state to menu
         if(Input.IsKeyPressed(((int)KeyList.Tab))){
-            //this.UIContainer.Visible = !this.UIContainer.Visible;
+            this.UI.ToggleInventory();
         }
         
             
     }
     public  override void _Process(float delta){
-       GetKeyInput();
+       //GetKeyInput();
+       if(Input.IsActionJustPressed("open_inventory")){
+           this.UI.ToggleInventory();
+       }
     }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
